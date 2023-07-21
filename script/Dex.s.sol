@@ -17,7 +17,7 @@ contract DexScript is Script {
     }
 
     function yoink(address eoa, Dex dex) public {
-	    vm.startBroadcast(eoa);
+        vm.startBroadcast(eoa);
         dex.approve(address(dex), type(uint256).max);
         address token1 = dex.token1();
         address token2 = dex.token2();
