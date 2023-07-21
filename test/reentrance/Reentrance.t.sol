@@ -11,12 +11,12 @@ contract ReentranceTest is Test {
 
     function setUp() public {
         reentrance = new Reentrance();
-	payable(reentrance).transfer(0.01 ether);
+        payable(reentrance).transfer(0.01 ether);
     }
 
     function testExploit() public {
         exploit = new Exploit{value: 0.001 ether}(reentrance);
-	exploit.yoink();
-	assert(address(reentrance).balance == 0);
+        exploit.yoink();
+        assert(address(reentrance).balance == 0);
     }
 }
